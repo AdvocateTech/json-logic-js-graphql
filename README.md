@@ -1,9 +1,5 @@
 # jsonLogic GraphQL Query Keys
 
-
-[![NPM](https://nodei.co/npm/json-logic-js-graphql.png?downloads=true)](https://nodei.co/npm/json-logic-js-graphql/)
-
-
 Exposes immutable useful functions from [Lodash](https://lodash.com/docs/) to [jsonLogic](https://github.com/jwadhams/json-logic-js)
 
 ## The Problem 
