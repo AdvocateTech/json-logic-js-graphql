@@ -1,0 +1,37 @@
+{
+  "compileOnSave": false,
+  "compilerOptions": {
+    "rootDir": "src",
+    "sourceMap": false,
+    "declaration": true,
+    "moduleResolution": "node",
+    "experimentalDecorators": true,
+    "emitDecoratorMetadata": true,
+    "resolveJsonModule": true,
+    "importHelpers": true,
+    "allowSyntheticDefaultImports": true,
+    "target": "es5",
+    "module": "commonjs",
+    "lib": [
+      "es2021",
+      "dom"
+    ],
+    "skipLibCheck": true,
+    "skipDefaultLibCheck": true,
+    "noImplicitAny": true,
+    "suppressImplicitAnyIndexErrors": true,
+    "noUnusedLocals": true,
+    "noUnusedParameters": true,
+    "baseUrl": ".",
+    "strictNullChecks": true,
+    "outDir": "lib",
+    "esModuleInterop": true
+  },
+  "include": [
+    "./src/*"
+  ],
+  "exclude": [
+    "node_modules",
+    "lib"
+  ]
+}
