@@ -32,7 +32,7 @@ const differenceInDuration = (dateStrings: string[], unit: DURATION_UNITS) => {
     const isSomeDateInvalid = [date1, date2].find((d) => isNaN(d.getTime()));
 
     if (isSomeDateInvalid) {
-        throw Error(`Invalid date in one of these strings: ${dateStrings}`);
+        return 0
     }
 
     switch (unit) {
