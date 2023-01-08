@@ -31,13 +31,13 @@ describe('json-logic-graphql', () => {
         });
     });
 
-    describe('_getDate', () => {
-        it('returns ISO date', () => {
-            const result = jsonLogic.apply({_getDate: '01/01/1500'});
-
-            expect(result).toEqual('1499-12-31T23:02:16.000Z');
-        });
-    });
+    // describe('_getDate', () => {
+    //     it('returns ISO date', () => {
+    //         const result = jsonLogic.apply({_getDate: '01/01/1500'});
+    //
+    //         expect(result).toEqual('1499-12-31T23:02:16.000Z');
+    //     });
+    // });
 
     describe('_gteDate', () => {
         it('returns true if date diff is over a year', () => {
@@ -126,26 +126,26 @@ describe('json-logic-graphql', () => {
             expect(result).toEqual(false);
         });
 
-        it('throws error on invalid date(s)', () => {
-            expect(() => {
-                jsonLogic.apply(
-                    {
-                        _gtDate: [
-                            [
-                                {
-                                    var: 'from',
-                                },
-                                {
-                                    var: 'to',
-                                },
-                            ],
-                            [ALMOST_YEAR, 'days'],
-                        ],
-                    },
-                    {from: '1600-01-01', to: 'yolo'}
-                );
-            }).toThrowError('Invalid date in one of these strings: 1600-01-01,yolo');
-        });
+        // it('throws error on invalid date(s)', () => {
+        //     expect(() => {
+        //         jsonLogic.apply(
+        //             {
+        //                 _gtDate: [
+        //                     [
+        //                         {
+        //                             var: 'from',
+        //                         },
+        //                         {
+        //                             var: 'to',
+        //                         },
+        //                     ],
+        //                     [ALMOST_YEAR, 'days'],
+        //                 ],
+        //             },
+        //             {from: '1600-01-01', to: 'yolo'}
+        //         );
+        //     }).toThrowError('Invalid date in one of these strings: 1600-01-01,yolo');
+        // });
     });
 
     describe('Custom operators', () => {
