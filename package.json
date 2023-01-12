@@ -1,6 +1,6 @@
 {
   "name": "json-logic-js-graphql",
-  "version": "1.0.0",
+  "version": "1.0.1",
   "description": "Graphql query support for json-logic-js using Lodash methods",
   "main": "./lib/index.js",
   "types": "./lib/index.d.ts",
