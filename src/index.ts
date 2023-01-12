@@ -25,9 +25,12 @@ enum DURATION_UNITS {
     YEARS = 'years',
 }
 
-const differenceInDuration = (dateStrings: string[], unit: DURATION_UNITS) => {
-    const date1 = parseISO(dateStrings[0]);
-    const date2 = parseISO(dateStrings[1]);
+const differenceInDuration = (dateInputs: string[] | Date[], unit: DURATION_UNITS) => {
+    const dateString1 = dateInputs[0] instanceof Date ? dateInputs[0].toISOString() : dateInputs[0];
+    const dateString2 = dateInputs[1] instanceof Date ? dateInputs[1].toISOString() : dateInputs[1];
+
+    const date1 = parseISO(dateString1);
+    const date2 = parseISO(dateString2);
 
     const isSomeDateInvalid = [date1, date2].find((d) => isNaN(d.getTime()));
 
@@ -71,31 +74,31 @@ jsonLogic.add_operation('_getDate', (date: string) =>
 
 jsonLogic.add_operation(
     '_gteDate',
-    (dateStrings: string[], durationUnits: [number, DURATION_UNITS]) =>
+    (dateStrings: string[] | Date[], durationUnits: [number, DURATION_UNITS]) =>
         differenceInDuration(dateStrings, durationUnits[1]) >= durationUnits[0]
 );
 
 jsonLogic.add_operation(
     '_gtDate',
-    (dateStrings: string[], durationUnits: [number, DURATION_UNITS]) =>
+    (dateStrings: string[] | Date[], durationUnits: [number, DURATION_UNITS]) =>
         differenceInDuration(dateStrings, durationUnits[1]) > durationUnits[0]
 );
 
 jsonLogic.add_operation(
     '_lteDate',
-    (dateStrings: string[], durationUnits: [number, DURATION_UNITS]) =>
+    (dateStrings: string[] | Date[], durationUnits: [number, DURATION_UNITS]) =>
         differenceInDuration(dateStrings, durationUnits[1]) <= durationUnits[0]
 );
 
 jsonLogic.add_operation(
     '_ltDate',
-    (dateStrings: string[], durationUnits: [number, DURATION_UNITS]) =>
+    (dateStrings: string[] | Date[], durationUnits: [number, DURATION_UNITS]) =>
         differenceInDuration(dateStrings, durationUnits[1]) < durationUnits[0]
 );
 
 jsonLogic.add_operation(
     '_eqDate',
-    (dateStrings: string[], durationUnits: [number, DURATION_UNITS]) =>
+    (dateStrings: string[] | Date[], durationUnits: [number, DURATION_UNITS]) =>
         differenceInDuration(dateStrings, durationUnits[1]) === durationUnits[0]
 );
 
