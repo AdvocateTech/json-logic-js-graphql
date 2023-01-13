@@ -126,26 +126,26 @@ describe('json-logic-graphql', () => {
             expect(result).toEqual(false);
         });
 
-        // it('throws error on invalid date(s)', () => {
-        //     expect(() => {
-        //         jsonLogic.apply(
-        //             {
-        //                 _gtDate: [
-        //                     [
-        //                         {
-        //                             var: 'from',
-        //                         },
-        //                         {
-        //                             var: 'to',
-        //                         },
-        //                     ],
-        //                     [ALMOST_YEAR, 'days'],
-        //                 ],
-        //             },
-        //             {from: '1600-01-01', to: 'yolo'}
-        //         );
-        //     }).toThrowError('Invalid date in one of these strings: 1600-01-01,yolo');
-        // });
+        it('returns false if date diff is exactly almost a year and params are Date objects', () => {
+            const result = jsonLogic.apply(
+                {
+                    _gtDate: [
+                        [
+                            {
+                                var: 'from',
+                            },
+                            {
+                                var: 'to',
+                            },
+                        ],
+                        [ALMOST_YEAR, 'days'],
+                    ],
+                },
+                {from: new Date('1600-01-01'), to: new Date('1600-12-30')}
+            );
+
+            expect(result).toEqual(false);
+        });
     });
 
     describe('Custom operators', () => {
